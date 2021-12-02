@@ -1,0 +1,2 @@
+forever start ./bin/www
+
