@@ -154,7 +154,12 @@ router.post('/setStateSlack', (req, res, next) => {
   let macNum = 0;
   // トークンでmacNumの設定
   if(req.body.token == "ir8bwGi3Ipm1W8FlFbMNtoa5") macNum = 201;   // ucro7a1
-  if(req.body.token == "WoG9XYuZlgGdcqHe3pA3ftDf") macNum = 202;   // ucro7a1
+  if(req.body.token == "WoG9XYuZlgGdcqHe3pA3ftDf") macNum = 202;   // ucro7a2
+  if(req.body.token == "QY8S1jfzvLgEsLVY3eFpsWS6") macNum = 203;   // ucro7a3
+  if(req.body.token == "N31G7N7iSbCcxtRDDU5d4VZt") macNum = 204;   // ucro7a4
+  if(req.body.token == "FT3B3Akx428D11wlr5dlYLUI") macNum = 205;   // ucro7a5
+  if(req.body.token == "7GklEkt7jvpeR0iIeqqQWmPY") macNum = 206;   // ucro7a6
+  if(req.body.token == "3iYeutGVGAu8XUr2eGu9JiCH") macNum = 207;   // ucro7a7
 
   // macNumに対応するトークンがない時
   if (macNum==0) {
@@ -182,28 +187,31 @@ router.post('/setStateSlack', (req, res, next) => {
   }
 
   let status = NaN;
-  if(slackText.match(/暇だね/)) {
+  if(slackText.match(/ひまだー/)) {
     status=501;
   }
-  else if(slackText.match(/憂うつだね/)) {
+  else if(slackText.match(/やだわー/)) {
     status=502;
   }
-  else if(slackText.match(/眠いね/)) {
+  else if(slackText.match(/眠い/)) {
     status=503;
   }
-  else if(slackText.match(/リラックスする/)) {
+  else if(slackText.match(/いい感じだね/)) {
     status=504;
   }
   else if(slackText.match(/ありがとう/)) {
     status=505;
   }
-  else if(slackText.match(/楽しいね/)) {
+  else if(slackText.match(/サンキュー/)) {
+    status=505;
+  }
+  else if(slackText.match(/いいね/)) {
     status=506;
   }
-  else if(slackText.match(/怖い/)) {
+  else if(slackText.match(/こわ/)) {
     status=507;
   }
-  else if(slackText.match(/怒っている/)) {
+  else if(slackText.match(/それはないわー/)) {
     status=508;
   }
   else if(slackText.match(/ステータスを教えて/)) {
@@ -251,7 +259,7 @@ router.post('/setStateSlack', (req, res, next) => {
         res.json({'text': 'エラーです(31)'});
         return;
       }
-      res.json({'text': userName + 'さん\n処理しましたよ(' + status + ')'});
+      // res.json({'text': userName + 'さん\n処理しましたよ(' + status + ')'});
     });
   });
 });
